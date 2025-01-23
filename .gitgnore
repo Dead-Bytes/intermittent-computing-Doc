@@ -1,2 +1,10 @@
 memory_project/
 BUILD/
+*.class
+
+# Package Files #
+/*.jar
+*.war
+*.ear
+
+.DS_Store
