@@ -1,0 +1,79 @@
+Buildfile: /home/ubuntu/Documents/imc/mspsim/build.xml
+
+init:
+
+compile:
+
+jar:
+
+runsky:
+     [java] MSPSim>Autoloading script: scripts/autorun.sc
+     [java] service controlgui started
+     [java] service nodegui started
+     [java] service serialgui started
+     [java] -----------------------------------------------
+     [java] MSPSim 0.99 starting firmware: firmware/sky/blink.sky
+     [java] -----------------------------------------------
+stop
+     [java] MSPSim>CPU stopped at: $434a
+debug true
+     [java] MSPSim>Debug is set to true
+step 5
+     [java] MSPSim>//// vector_ffea
+     [java] I:5 70f6:   0f 12 PUSH.W R15        R15=0008 SP=38fa
+     [java] I:5 70f8:   0e 12 PUSH.W R14        R14=0000 SP=38f8
+     [java] I:5 70fa:   0d 12 PUSH.W R13        R13=0000 SP=38f6
+     [java] I:5 70fc:   0c 12 PUSH.W R12        R12=0000 SP=38f4
+     [java] I:5 70fe:   92 42 90 01 ae 26 MOV.W &TBR, &$26ae    R2=0000 R2=0000 SR=---- SP=38f4; as = 1 sMem:0000
+     [java] CPU stepped to: $7104 in 1422 cycles (39471295)
+savefl
+     [java] MSPSim>0
+     [java] CPU state saved to flash starting at address 0x1000
+     [java] PC: $7104
+step 8
+     [java] MSPSim>I:5 7104:    a2 93 2e 01 CMP.W #2, &TA0IV    R2=0003 R3=0000 SR=--ZC SP=38f4; as = 2 sMem:1000
+     [java] I:5 7108:   20 20 JNE $0040         SR=--ZC
+     [java] I:5 710a:   b2 50 40 00 74 01 ADD.W #$0040, &TA0CCR1        R2=0004 R0=7110 SR=-N-- SP=38f4; as = 3 sMem:1000
+     [java] I:5 7110:   92 53 64 11 ADD.W #1, &$421f    R2=0000 R3=0000 SR=---- SP=38f4; as = 1 sMem:1000
+     [java] I:5 7114:   1f 42 74 01 MOV.W &TA0CCR1, R15 R15=ff40 R2=0000 SR=---- SP=38f4; as = 1 sMem:0000
+     [java] I:5 7118:   1f 82 70 01 SUB.W &TA0R, R15    R15=0040 R2=0001 SR=---C SP=38f4; as = 1 sMem:0000
+     [java] I:5 711c:   3f 90 41 00 CMP.W #$0041, R15   R15=0040 R0=7120 SR=-N-- SP=38f4; as = 3 sMem:1000
+     [java] I:5 7120:   f4 2f JC $ffe8          SR=-N--
+     [java] CPU stepped to: $7122 in 25 cycles (39471320)
+loadfl
+     [java] MSPSim>CPU state loaded from flash starting at address 0x1000
+     [java] PC restored to: $7104
+step 8
+     [java] MSPSim>I:5 7104:    a2 93 2e 01 CMP.W #2, &TA0IV    R2=0004 R3=0000 SR=-N-- SP=38f4; as = 2 sMem:1000
+     [java] I:5 7108:   20 20 JNE $0040         SR=-N--
+     [java] I:5 714a:   1f 42 90 01 MOV.W &TBR, R15     R15=febf R2=0004 SR=-N-- SP=38f4; as = 1 sMem:0000
+     [java] I:5 714e:   1f 82 ae 26 SUB.W &$26ae, R15   R15=0000 R2=0003 SR=--ZC SP=38f4; as = 1 sMem:febf
+     [java] I:5 7152:   0e 4f MOV.W R15, R14    R14=0000 R15=0000 SR=--ZC SP=38f4; as = 0 sMem:1000
+     [java] I:5 7154:   0f 4e MOV.W R14, R15    R15=0000 R14=0000 SR=--ZC SP=38f4; as = 0 sMem:1000
+     [java] I:5 7156:   0f 5f ADD.W R15, R15    R15=0000 R15=0000 SR=--Z- SP=38f4; as = 0 sMem:1000
+     [java] I:5 7158:   0f 7f SUBC.W R15, R15   R15=ffff R15=ffff SR=-N-- SP=38f4; as = 0 sMem:1000
+     [java] CPU stepped to: $715a in 16 cycles (39471336)
+info
+     [java] MSPSim>  SFR (Special Function Register)
+     [java]   BasicClockModule
+     [java]   USART0 (USART 0)
+     [java]   USART1 (USART 1)
+     [java]   dma
+     [java]   P1 (Port 1)
+     [java]   P2 (Port 2)
+     [java]   P3 (Port 3)
+     [java]   P5 (Port 5)
+     [java]   P4 (Port 4)
+     [java]   P6 (Port 6)
+     [java]   ADC12
+     [java]   TimerA
+     [java]   TimerB
+     [java]   Watchdog
+     [java]   MSP430 (MSP430 Core)
+     [java]   Tmote Sky
+     [java]   DS2411 (Silicon Serial Number)
+     [java]   CC2420 (Radio)
+     [java]   Leds
+     [java]   Button
+     [java]   SHT11 (Digital Humidity Sensor)
+     [java]   M25P80 (External Flash)

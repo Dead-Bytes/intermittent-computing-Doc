@@ -1,0 +1,51 @@
+calculate battery function 
+present at se/sics/mspsim/util/OperatingModelStatistics.java
+
+    // returns percentage since last call...
+    public double getDoubleValue() {
+      long diff = cpu.cycles - lastCycles;
+      if (diff == 0) return 0;
+      long val = entry.getValue(mode, cpu.cycles);
+      long valDiff = val - lastValue;
+      lastValue = val;
+      lastCycles = cpu.cycles;
+      if (operation == OP_INVERT) {
+        return (100.0 - (100.0 * valDiff) / diff); 
+      }
+      return (100.0 * valDiff) / diff;
+    }
+
+
+1. Active Mode (AM)
+
+    The CPU is fully running.
+    Peripherals and clocks are active.
+    Highest power consumption.
+
+2. Low-Power Mode 0 (LPM0)
+
+    The CPU is halted.
+    The MCLK (Main Clock) is disabled, but SMCLK (Sub-Main Clock) and ACLK (Auxiliary Clock) remain active.
+    Peripherals can continue to operate.
+
+3. Low-Power Mode 1 (LPM1)
+
+    Similar to LPM0, but DCO (Digitally Controlled Oscillator) is disabled.
+    Reduced power consumption.
+
+4. Low-Power Mode 2 (LPM2)
+
+    The CPU is halted.
+    MCLK and SMCLK are disabled.
+    Only ACLK remains active.
+
+5. Low-Power Mode 3 (LPM3)
+
+    Similar to LPM2, but the DCO and DC Generator are also disabled.
+    Very low power consumption.
+
+6. Low-Power Mode 4 (LPM4)
+
+    The system is in a deep sleep mode.
+    CPU, clocks, and most peripherals are turned off.
+    Only external interrupts (e.g., GPIO wakeup) can wake the CPU.
